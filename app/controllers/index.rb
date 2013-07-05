@@ -40,8 +40,11 @@ end
 
 post '/sessions' do
   @user = User.find_by_email(params[:user][:email])
+  puts "User: #{@user.inspect}"
+  puts "password: #{params[:user][:password]}"
+  puts "Params: #{params.inspect}"
   unless @user.nil?
-    if @user.authenticate(params([:user][:password]))
+    if @user.authenticate(params[:user][:password])
       session[:user_id] = @user.id
     end
   end
@@ -50,4 +53,5 @@ end
 
 get '/sessions/logout' do
   session.clear
+  redirect '/'
 end
