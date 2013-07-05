@@ -25,7 +25,7 @@ class InitialSetup < ActiveRecord::Migration
       t.references :choice
     end
 
-    add_index(:answers, [:user_id :choice_id], unique: true)
+    add_index(:answers, [:user_id, :choice_id], unique: true)
 
   end
 end
