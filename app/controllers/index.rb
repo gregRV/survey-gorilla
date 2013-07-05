@@ -1,21 +1,33 @@
 enable :sessions
 
 get '/' do
+  @surveys = Survey.all
   erb :index
 end
 
 #--- CREATE NEW SURVEY
 get '/surveys/new' do
-
+  erb :"surveys/new"
 end
 
 post '/surveys' do
+  survey = Survey.create(params[:survey])
+  question = Question.create(text: params[:question])
+  survey.questions << question
+  params[:choice].values.each do |choice|
+    question.choices << Choice.create(text: choice)
+  end
+
+  # debugger
+  # puts "Params: #{params}"
+  redirect '/'
 
 end
 
 #--- SHOW SURVEY
 get '/surveys/:id' do |id|
-
+  @survey = Survey.find(id)
+  erb :"surveys/show"
 end
 
 post '/surveys/:id' do |id|
@@ -40,9 +52,6 @@ end
 
 post '/sessions' do
   @user = User.find_by_email(params[:user][:email])
-  puts "User: #{@user.inspect}"
-  puts "password: #{params[:user][:password]}"
-  puts "Params: #{params.inspect}"
   unless @user.nil?
     if @user.authenticate(params[:user][:password])
       session[:user_id] = @user.id
