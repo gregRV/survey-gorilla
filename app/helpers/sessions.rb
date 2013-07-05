@@ -10,4 +10,9 @@ helpers do
     current_user != nil
   end
 
+  # def check_password(email, password)
+  #   user=User.find_by_email(email)
+  #   user.password==password
+  # end
+
 end
