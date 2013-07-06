@@ -23,7 +23,7 @@
    <nav>
      <ul>
       <% if current_user %>
-      <li><a id="profile" href="/users/<%= current_user.id %>/profile">Profile</a></li>
+      <li><a id="profile" href="/users/<%= current_user.id %>">Profile</a></li>
       <li><a id="sign-out" href="/sessions/logout">Sign Out</a></li>
       <% else %>
       <li><a href="/sessions/new">Sign In</a></li>
