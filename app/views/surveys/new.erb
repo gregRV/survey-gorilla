@@ -1,0 +1,17 @@
+<h2>Create a Survey!!</h2>
+<form action="/surveys" method="POST">
+  <p>Title</p>
+    <input type='text' name='survey[title]' placeholder='Title for Survey'>
+  <p>Description</p>
+    <input type='text' name='survey[description]' placeholder='Description of Survey'>
+  <p>Question</p>
+  <textarea rows="5" cols="20" name="question" placeholder="Question"></textarea>
+  <ol text-align='left'>
+  <li><input type="text" name="choice[1]" placeholder="answer"></li>
+  <li><input type="text" name="choice[2]" placeholder="answer"></li>
+  <li><input type="text" name="choice[3]" placeholder="answer"></li>
+  </ol>
+  <input type="submit" value="Create Survey">
+</form>
+
+
