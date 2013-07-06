@@ -1,16 +1,17 @@
-<h1><%= @survey.title %></h1>
+<div class="survey-container">
+	<h1><%= @survey.title %></h1>
+	<h2><%= @survey.description %></h2>
 
-<h2><%= @survey.description %></h2>
+	<form action="/surveys/<%= @survey.id %>/answers" method="POST">
+	  <ol>
+	  <% @survey.questions.each do |question| %>
+	  <li><%= question.text %>
+	    <% question.choices.each do |choice| %>
+	    <p><input type='radio' name="choice" value='<%=choice.id%>'><%= choice.text %></p>
+	    <%end%></li>
+	  </ol>
+	  <% end %>
 
-<form action="/surveys/<%= @survey.id %>/answers" method="POST">
-  <ol>
-  <% @survey.questions.each do |question| %>
-  <li><%= question.text %>
-    <% question.choices.each do |choice| %>
-    <p><input type='radio' name="choice" value='<%=choice.id%>'><%= choice.text %></p>
-    <%end%></li>
-  </ol>
-  <% end %>
-
-  <input type="submit" value="Vote"/>
-</form>
+	  <input id="create-button" type="submit" value="Vote"/>
+	</form>
+</div>

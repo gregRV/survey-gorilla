@@ -9,7 +9,7 @@ header{
   line-height: 60px;
 }
 .logo{
-  font-family: 'Leckerli One', cursive;
+  font-family: 'Leckerli One', cursive;  
   font-weight: normal;
   margin: 0;
   padding: 0;
@@ -28,16 +28,17 @@ header a {
   color: #ecf0f1;
   padding: 0;
   margin: 0;
-    text-decoration: none;
+  text-decoration: none;
 }
 header a:hover{
   color: orange;
+  transition: color 0.5s linear;
 }
 header nav ul{
   line-height: 60px;
   padding: 0;
   margin: 0;
-list-style: none;
+  list-style: none;
 }
 header nav li{
   float: left;
@@ -54,9 +55,37 @@ header nav li{
   border-radius: 10px;
   z-index: 1;
   background-color: rgba(236, 241, 240, 0.8)
-
-
 }
+
+.container li {
+  list-style-type: none;
+  margin-bottom: 15px;
+}
+
+.container a {
+  text-decoration: none;
+  color: black;
+}
+
+/*'transition' needed for animation, 'all' refers
+to all properties in #create-survey:hover a*/
+#create-survey {
+  font-family: 'Leckerli One', cursive;
+  text-align: center;
+  font-size: 2em;
+  transition: all 0.3s;
+}
+
+#create-survey:hover {
+  letter-spacing: 5px;
+  font-size: 2.2em;
+}
+
+#create-survey:hover a{
+  text-shadow: 0px 2px 5px #1abc9c;
+  transition: text-shadow 0.3s linear;
+}
+
 th {
   text-align: left;
 }
@@ -75,3 +104,28 @@ input.button:hover{
   background-color: #1abc9c;
 }
 
+.header {
+  font-family: 'Leckerli One', cursive; 
+  font-size: 2em; 
+  text-align: center;
+}
+
+.survey-container {
+  text-align: center;
+  padding: 0px 10px;
+}
+
+textarea {
+  border-radius: 8px;
+}
+
+#create-button {
+  transition: all 0.3s;
+}
+
+#create-button:hover {
+  font-size: 150%;
+  font-family: 'Leckerli One', cursive; 
+  color: white;
+  background-color: #1abc9c;
+}

@@ -1,9 +1,7 @@
+  <!-- CREATE NEW SURVEY -->
+  <p id="create-survey"><a href="surveys/new">Create a new Survey</a></p>
 
   <!-- SHOW ALL SURVEYS -->
-  <h3>This is where all surveys will be displayed</h3>
-
-  <p><a href="surveys/new">Create a new Survey</a></p>
-
   <% @surveys.each do |survey| %>
     <a href="/surveys/<%= survey.id %>"><li><%= survey.title %></li></a>
   <% end %>
