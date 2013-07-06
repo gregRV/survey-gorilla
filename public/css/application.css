@@ -1,13 +1,20 @@
 body {
   background-color: #bdc3c7;
+  background-image: url('../img/01_packed_hall.jpg')
 }
 header{
-
-  width: 100%;
+  padding: 0 50px 0 50px;
   height: 60px;
   background-color: #1abc9c;
   line-height: 60px;
-
+}
+.logo{
+  font-family: 'Leckerli One', cursive;
+  font-weight: normal;
+  margin: 0;
+  padding: 0;
+  font-size: 1.8em;
+  line-height: 60px;
 }
 header nav {
   float: right;
@@ -40,8 +47,8 @@ header nav li{
   width: 600px;
   padding: 20px 20px 20px 20px;
   border-radius: 10px;
-  background-color: #ecf0f1;
   z-index: 1;
+  background-color: rgba(236, 241, 240, 0.8)
 
 
 }
