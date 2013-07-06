@@ -30,16 +30,21 @@ header a {
   margin: 0;
     text-decoration: none;
 }
+header a:hover{
+  color: orange;
+}
 header nav ul{
   line-height: 60px;
   padding: 0;
   margin: 0;
+list-style: none;
 }
 header nav li{
   float: left;
   line-height: 60px;
   padding: 0;
-  margin: 0;
+  margin: 0 10px 0 10px;
+
 }
 .container {
   position: relative;
@@ -58,5 +63,15 @@ th {
 
 .signup{
   text-align: center;
+}
+
+input{
+  border-radius: 5px;
+  border: 1px gray solid;
+  padding: 5px;
+}
+input.button:hover{
+  color: #ecf0f1;
+  background-color: #1abc9c;
 }
 
