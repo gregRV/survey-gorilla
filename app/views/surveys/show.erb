@@ -1,23 +1,21 @@
 <div class="survey-container">
-	<h1><%= @survey.title %></h1>
-	<h2><%= @survey.description %></h2>
-
+	<div class='survey-titles'>
+		<h1><%= @survey.title %></h1>
+		<h2><%= @survey.description %></h2>
+	</div>
 	<div class='form_questions' >
 		<form action="/surveys/<%= @survey.id %>/answers" method="POST">
 			
 			<% @survey.questions.each do |question| %>
 			<ol class='questions'>
 				<li><%= question.text %></li>
-
-
+				
 				<% question.choices.each do |choice| %>
 				<div class='choices'>
-					<input type='radio' name="choice" value='<%=choice.id%>'>
+					<input type='radio' name="choice" value='<%=choice.id%>' required>
 					<label for="radio"><%= choice.text %></label>
 				</div>
 				<%end%>
-
-				
 
 			</ol>
 			<% end %>

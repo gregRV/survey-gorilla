@@ -3,6 +3,8 @@ class Question < ActiveRecord::Base
   has_many :choices
   has_many :answers, through: :choices
   has_many :users, through: :answers
+
+  
   def answered_by?(user)
 
   end

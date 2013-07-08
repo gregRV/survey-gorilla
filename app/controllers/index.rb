@@ -7,7 +7,11 @@ end
 
 #--- CREATE NEW SURVEY
 get '/surveys/new' do
-  erb :"surveys/new"
+  if current_user
+    erb :"surveys/new"
+  else
+    erb :index
+  end
 end
 
 post '/surveys' do
@@ -25,12 +29,22 @@ end
 #--- SHOW SURVEY
 get '/surveys/:id' do |id|
   @survey = Survey.find(id)
-  erb :"surveys/show"
+  if current_user
+    erb :"surveys/show"
+  else
+    erb :index
+  end
+
 end
 
-post '/surveys/:id/answers' do |id|
+post '/surveys/:id/answers' do |id| 
   choice = Choice.find(params[:choice])
-  current_user.answers.create({choice: choice})
+  answer = Answer.create(choice_id: choice.id)
+  puts "Current User: #{current_user.answers}"
+  puts "answer: #{answer}"
+
+  current_user.answers << answer
+  puts "Current User after: #{current_user.answers}"
   redirect '/'
 end  
 
@@ -48,6 +62,7 @@ end
 #--- SHOW USER
 get '/users/:id' do |id|
   @user=User.find(id)
+  @surveys_answered = @user.answers.last.choice.question.survey
   erb :'users/show'
 end
 

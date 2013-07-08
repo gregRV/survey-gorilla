@@ -1,4 +1,4 @@
-<h1 class="header"><%= @user.name %><h1>
+<h1 class="header"><%= @user.name %>'s Profile Page<h1>
   <h2>Surveys Created:</h2>
   <ol>
     <% @user.surveys.each do |survey| %>
@@ -6,9 +6,18 @@
       <%end%>
   </ol>
 
-  <h2>Your Answers</h2>
+  <h2>Your Answers to Other Surveys: </h2>
   <ol>
     <% @user.answers.each do |answer| %>
-    <li><%=answer.choice.text%></li>
-      <%end%>
+    <% survey = answer.choice.question.survey %>
+    <% question = answer.choice.question %>
+    <label>Survey:</label>
+    <li><%= survey.title %></li>
+
+    <label>Question:</label>
+    <li><%= question.text %></li>
+
+    <label>Answer:</label>
+    <li><%= answer.choice.text%></li>
+    <%end%>
   </ol>

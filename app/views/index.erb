@@ -1,8 +1,15 @@
   <!-- CREATE NEW SURVEY -->
   <p id="create-survey"><a href="surveys/new">Create a new Survey</a></p>
 
-  <!-- SHOW ALL SURVEYS -->
-  <% @surveys.each do |survey| %>
-    <a href="/surveys/<%= survey.id %>"><li><%= survey.title %></li></a>
+  <% if !current_user %>
+  <h2>Please Log In to Create Surveys and Vote</h2>
   <% end %>
+
+  <!-- SHOW ALL SURVEYS -->
+  <div class='show-surveys'>
+    <h2>Current Surveys</h2>
+    <% @surveys.each do |survey| %>
+    <a href="/surveys/<%= survey.id %>"><li><%= survey.title %></li></a>
+    <% end %>
+  </div>
 
