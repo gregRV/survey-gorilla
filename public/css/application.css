@@ -98,11 +98,30 @@ input{
   border-radius: 5px;
   border: 1px gray solid;
   padding: 5px;
+
 }
 input.button:hover{
   color: #ecf0f1;
   background-color: #1abc9c;
 }
+
+
+.form_questions {
+  text-align: center;
+
+}
+
+.choices {
+  display: block;
+  text-align: left;
+  width: 20%;
+  margin: 0 auto;
+  border-radius: 8px;
+  margin-bottom: 5px;
+  background-color: lightgreen;
+  padding-left: 5px;
+}
+
 
 .header {
   font-family: 'Leckerli One', cursive; 

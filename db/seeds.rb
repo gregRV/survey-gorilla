@@ -7,17 +7,19 @@
 end
 
 1.upto(10)  do |i|
-  Survey.create(title:  Faker::Lorem.words,
-                description:  Faker::Lorem.sentence,
+  Survey.create(title:  "Title #{i}",
+                description:  "Description #{i}",
                 creator_id: i)
+  # Survey.creators << i
 end
 
 1.upto(10) do |i|
-  question = Question.create(text: Faker::Lorem.sentence,
+  question = Question.create(text: Faker::Lorem.sentence.chomp,
                   survey_id:  i)
 
-  3.times do
-    question.choices << Choice.create(text: Faker::Lorem.words)
+  answer = ['Yes', 'No', 'Maybe']
+  3.times do |j|
+    question.choices << Choice.create(text: answer[j])
   end
   
 end
